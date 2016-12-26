@@ -1,0 +1,30 @@
+/**
+ * Upload cover photo to Elgg Entities
+ * @package amap_coverphoto 
+ */
+
+.remove_button {
+	margin: 10px 0;
+}
+
+.submit_btn {
+	margin-bottom: 5px;
+}
+
+.elgg-form-amap-coverphoto-crop .mrl {
+    width: 100%;
+    margin: 0px;
+}
+
+.elgg-form-amap-coverphoto-crop .entity_link {
+    float: right;
+    margin: 0 0 0 10px!important;
+    max-height: 33px;
+}
+
+.ys_coverphoto {
+    max-width: 1170px;
+    max-height: 370px;
+    overflow: hidden;
+}
+

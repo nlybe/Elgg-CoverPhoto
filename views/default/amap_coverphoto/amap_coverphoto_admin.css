@@ -1,0 +1,24 @@
+/**
+ * Upload cover photo to Elgg Entities
+ * @package amap_coverphoto 
+ */
+
+.cover_box {
+    width:100%; 
+    display: block; 
+    clear:both;
+}
+
+.cover_box .cover_width,
+.cover_box .cover_height{
+    width: 100px; 
+}
+
+.cover_box .elgg-field{
+    max-width: 150px; 
+    display:inline-block;
+}
+
+.cover_box input {
+    margin-right: 10px;
+}
