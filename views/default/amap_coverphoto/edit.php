@@ -5,21 +5,21 @@
  */
 
 $cover_imagen = elgg_view('output/img', array(
-	'src' => amap_cp_getCoverIconUrl($vars['entity'], 'small'),
-	'alt' => elgg_echo('cover'),
+    'src' => amap_cp_getCoverIconUrl($vars['entity'], 'small'),
+    'alt' => elgg_echo('cover'),
 ));
 
 $current_label = elgg_echo('amap_coverphoto:current');
 
 $remove_button = '';
 if ($vars['entity']->covertime) {
-	$remove_button = elgg_view('output/url', array(
-		'text' => elgg_echo('remove'),
-		'title' => elgg_echo('avatar:remove'),
-		'href' => 'action/amap_coverphoto/remove?guid=' . $vars['entity']->getGUID(),
-		'is_action' => true,
-		'class' => 'elgg-button elgg-button-cancel',
-	));
+    $remove_button = elgg_view('output/url', array(
+        'text' => elgg_echo('remove'),
+        'title' => elgg_echo('avatar:remove'),
+        'href' => 'action/amap_coverphoto/remove?guid=' . $vars['entity']->getGUID(),
+        'is_action' => true,
+        'class' => 'elgg-button elgg-button-cancel',
+    ));
 }
 
 $form_params = array('enctype' => 'multipart/form-data');

@@ -10,10 +10,11 @@
  * @param type $size
  * @return boolean
  */
-function amap_cp_getCoverIconUrl($entity, $size = 'medium') {
+function amap_cp_getCoverIconUrl($entity, $size = 'master') {
 
-    if (!elgg_instanceof($entity))
+    if (!elgg_instanceof($entity)) {
         return false;
+    }
 
     $icon_time = $entity->covertime;
     if ($icon_time) {

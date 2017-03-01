@@ -38,11 +38,11 @@ function amap_coverphoto_init() {
 
     // set cover sizes
     elgg_set_config('cover_sizes', array(
-        'tiny' => array('w' => 200, 'h' => 66, 'square' => FALSE, 'upscale' => FALSE),
-        'small' => array('w' => 400, 'h' => 133, 'square' => FALSE, 'upscale' => FALSE),
-        'medium' => array('w' => 900, 'h' => 300, 'square' => FALSE, 'upscale' => FALSE),
-        'large' => array('w' => 1170, 'h' => 390, 'square' => FALSE, 'upscale' => FALSE),
-        'master' => array('w' => 1300, 'h' => 1300, 'square' => FALSE, 'upscale' => FALSE),
+        'tiny' => array('w' => 200, 'h' => 66, 'square' => false, 'upscale' => false),
+        'small' => array('w' => 400, 'h' => 133, 'square' => false, 'upscale' => false),
+        'medium' => array('w' => 900, 'h' => 300, 'square' => false, 'upscale' => false),
+        'large' => array('w' => 1170, 'h' => 400, 'square' => false, 'upscale' => false),
+        'master' => array('w' => 1300, 'h' => 1300, 'square' => false, 'upscale' => false),
     ));
 }
 

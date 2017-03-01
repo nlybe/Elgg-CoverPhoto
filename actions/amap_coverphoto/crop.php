@@ -19,7 +19,7 @@ $y2 = (int) get_input('y2', 0);
 
 $filehandler = new CoverPhoto();
 $filehandler->owner_guid = $entity->getGUID();
-$filehandler->setFilename("coverphoto/" . $entity->guid . "master" . ".jpg");
+$filehandler->setFilename("coverphoto/" . $entity->getGUID() . "master" . ".jpg");
 $filename = $filehandler->getFilenameOnFilestore();
 
 // ensuring the avatar image exists in the first place
@@ -35,18 +35,27 @@ unset($icon_sizes['master']);
 // so we can do clean up if one fails.
 $files = array();
 foreach ($icon_sizes as $name => $size_info) {
-    $resized = get_resized_image_from_existing_file($filename, $size_info['w'], $size_info['h'], $size_info['square'], $x1, $y1, $x2, $y2, $size_info['upscale']);
+    
+    $image = new CoverPhoto();
+    $image->owner_guid = $entity->getGUID();
+    $image->setFilename("coverphoto/{$entity->getGUID()}{$name}.jpg");
+    $image->open('write');
+    $image->close();
+
+    $resized = elgg_save_resized_image($filename, $image->getFilenameOnFilestore(), array(
+        'w' => $size_info['w'],
+        'h' => $size_info['h'],
+        'x1' => $x1,
+        'y1' => $y1,
+        'x2' => $x2,
+        'y2' => $y2,
+        'square' => $size_info['square'],
+        'upscale' => $size_info['upscale'],
+    ));           
 
     if ($resized) {
-        $file = new CoverPhoto();
-        $file->owner_guid = $guid;
-        $file->setFilename("coverphoto/{$guid}{$name}.jpg");
-        $file->open('write');
-        $file->write($resized);
-        $file->close();
         $files[] = $file;
-    } 
-    else {
+    } else {
         // cleanup on fail
         foreach ($files as $file) {
             $file->delete();
@@ -55,6 +64,8 @@ foreach ($icon_sizes as $name => $size_info) {
         register_error(elgg_echo('amap_coverphoto:resize:fail'));
         forward(REFERER);
     }
+    
+    unset($resized);     
 }
 
 // check if cover size has been entered in setting
@@ -62,17 +73,26 @@ $entity_type = getEntityCoverType($entity);
 $width = elgg_get_plugin_setting('amap_coverphoto_'.$entity_type.'_w', 'amap_coverphoto');
 $height = elgg_get_plugin_setting('amap_coverphoto_'.$entity_type.'_h', 'amap_coverphoto');
 if (is_numeric($width) && is_numeric($width)) {
-    $resized = get_resized_image_from_existing_file($filename, $width, $height, false, $x1, $y1, $x2, $y2, false);
-
-    if ($resized) {
-        $file = new CoverPhoto();
-        $file->owner_guid = $guid;
-        $file->setFilename("coverphoto/{$guid}{$entity_type}.jpg");
-        $file->open('write');
-        $file->write($resized);
-        $file->close();
-        $files[] = $file;
-    }    
+    
+    $image = new CoverPhoto();
+    $image->owner_guid = $entity->getGUID();
+    //$image->container_guid = $entity->getGUID();
+    $image->setFilename("coverphoto/{$entity->getGUID()}{$entity_type}.jpg");
+    $image->open('write');
+    $image->close();
+    
+    $resized = elgg_save_resized_image($filename, $image->getFilenameOnFilestore(), array(
+        'w' => $width,
+        'h' => $height,
+        'x1' => $x1,
+        'y1' => $y1,
+        'x2' => $x2,
+        'y2' => $y2,
+        'square' => false,
+        'upscale' => false,
+    ));  
+    
+    unset($resized); 
 }
 
 $entity->covertime = time();
@@ -83,6 +103,7 @@ $entity->y1 = $y1;
 $entity->y2 = $y2;
 
 $entity->save();
+//error_log('lalala: '.$entity->x1.' - '.$entity->x2.' - '.$entity->y1.' - '.$entity->y2);
 
 system_message(elgg_echo('amap_coverphoto:crop:success'));
 forward(REFERER);

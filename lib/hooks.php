@@ -29,7 +29,8 @@ function amap_coverphoto_entity_menu_setup($hook, $type, $return, $params) {
 
                 $options = array(
                     'name' => 'editcoverphoto',
-                    'text' => elgg_echo("amap_coverphoto:edit"),
+                    'text' => elgg_view_icon('photo'),
+                    'title' => elgg_echo("amap_coverphoto:edit:cover"),
                     'href' => $url,
                     'priority' => 400,
                 );

@@ -10,14 +10,17 @@ $language = array(
     
     // general
     'amap_coverphoto:edit' => 'Cover Photo',  
-    'amap_coverphoto:edit:cover' => 'Edit cover',   
+    'amap_coverphoto:edit:cover' => 'Edit cover photo',   
     'amap_coverphoto:edit:cover:add' => 'Add cover photo',   
     'amap_coverphoto:edit:notvalidaccess' => 'Not valid access', 
     'amap_coverphoto:back:entity' => 'Back to view',
     
     // edit cover
     'amap_coverphoto:current' => 'Current cover',  
-    'amap_coverphoto:upload' => 'Upload an image',
+    'amap_coverphoto:upload' => 'Select an image to upload',
+    'amap_coverphoto:upload:empty' => 'No file was uploaded',
+    'amap_coverphoto:upload:invalid_file_type' => '%s is not supported',
+    'amap_coverphoto:upload:help' => 'Only jpeg, gif and png images are supported',
     'amap_coverphoto:upload:fail' => 'Failed to upload the file',
     'amap_coverphoto:upload:fail:image' => 'Not valid image file',
     'amap_coverphoto:resize:fail' => 'Failed to resized the cover',
