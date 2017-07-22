@@ -1,4 +1,7 @@
-### 2.3.2 (Feb 2016)
+### 2.3.2 (July 2017)
+- Updated: English language file
+
+### 2.3.3 (Feb 2017)
 - Upgraded for Elgg 2.3
 - Fixed: cover removal delete now all files
 - Changed: menu item text is now icon

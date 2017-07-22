@@ -35,7 +35,7 @@ if (elgg_is_active_plugin('cropper')) {
     if (intval($width)>0 && intval($height)>0) {
         $vars['aspectratio'] = intval($width)/intval($height);
     }
-    //error_log('lalala: '.$vars['entity']->x1.' - '.$vars['entity']->x2.' - '.$vars['entity']->y1.' - '.$vars['entity']->y2);
+    
     echo elgg_view_input('cropper', $vars);
 }
 else {

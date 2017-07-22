@@ -7,6 +7,7 @@
 $language = array(
 
     'amap_coverphoto' => 'Upload cover photo to Entities',
+    'item:object:coverphoto' => 'Cover Photos',
     
     // general
     'amap_coverphoto:edit' => 'Cover Photo',  
