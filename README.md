@@ -1,7 +1,7 @@
 Cover Photo for Entities
 ========================
 
-![Elgg 2.2](https://img.shields.io/badge/Elgg-2.2-orange.svg?style=flat-square)
+![Elgg 2.3](https://img.shields.io/badge/Elgg-2.2-orange.svg?style=flat-square)
 
 This plugin offers the option to upload cover photo to Elgg Entities.
 
