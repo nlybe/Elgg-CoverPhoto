@@ -1,3 +1,7 @@
+### 2.3.4 (October 2017)
+- Updated: English language file
+- Changed: Back to view button on crop form replaced by link
+
 ### 2.3.3 (July 2017)
 - Updated: English language file
 

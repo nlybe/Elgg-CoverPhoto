@@ -10,11 +10,12 @@ $entity_type = getEntityCoverType($entity);
 $width = elgg_get_plugin_setting('amap_coverphoto_'.$entity_type.'_w', 'amap_coverphoto');
 $height = elgg_get_plugin_setting('amap_coverphoto_'.$entity_type.'_h', 'amap_coverphoto');
 
-$entity_btn = elgg_view('input/button', array(
-    'value' => elgg_echo('amap_coverphoto:back:entity'), 
+$entity_btn = elgg_view('output/url', [
+    'href' => $entity->getURL(),
+    'text' => elgg_echo('amap_coverphoto:back:entity'),
+    "title" => elgg_echo('amap_coverphoto:back:entity'),
     'class' => 'elgg-button elgg-button-submit entity_link',
-    'onclick' => "location.href='".$entity->getURL()."'",
-));
+]);
 $crop_btn = elgg_view('input/submit', array(
     'value' => elgg_echo('amap_coverphoto:crop:create'), 
     'class' => 'elgg-button elgg-button-submit'

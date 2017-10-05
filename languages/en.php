@@ -35,7 +35,6 @@ $language = array(
     'amap_coverphoto:create:instructions:title' => "Step 2",
     'amap_coverphoto:create:instructions' => "Click and drag a square below to match how you want your cover cropped. When you are happy with the area, click on <strong>Crop</strong> button.",
     'amap_coverphoto:crop:create' => 'Crop',
-    'amap_coverphoto:crop:fail' => 'Failed to crop the cover',
     'amap_coverphoto:crop:success' =>  'The cover was published correctly',  
     'amap_coverphoto:remove:success' => 'You have successfully deleted the cover',
     

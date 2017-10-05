@@ -3,7 +3,7 @@
     <name>Cover Photo for Entities</name>
     <id>amap_coverphoto</id>
     <author>Nikos Lyberakis</author>
-    <version>2.3.3</version>
+    <version>2.3.4</version>
     <category>bundled</category>
     <category>content</category>
     <description>Upload cover photo to Elgg Entities</description>
